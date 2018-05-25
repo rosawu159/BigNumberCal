@@ -146,7 +146,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BigDec.cpp" />
+    <ClCompile Include="BigInt.cpp" />
+    <ClCompile Include="ExceptionList.cpp" />
+    <ClCompile Include="Number.cpp" />
     <ClCompile Include="Source.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BigDec.h" />
+    <ClInclude Include="BigInt.h" />
+    <ClInclude Include="ExceptionList.h" />
+    <ClInclude Include="Number.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
