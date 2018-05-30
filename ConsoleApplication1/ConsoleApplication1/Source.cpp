@@ -1,3 +1,4 @@
+//#define TEST
 #include<iostream>
 #include "Number.h"
 #include "BigDec.h"
@@ -8,9 +9,11 @@
 #define MAX 256
 using namespace std;
 
+typedef BigInt Integer;
+typedef BigDec Decimal;
+
 map<string, BigInt>intVar;
 map<string, BigDec>decVar;
-
 
 void processInput(stringstream & ss, string& input);
 BigDec calTier4(stringstream& line);
@@ -22,15 +25,14 @@ int main()
 {
 	string cmd;
 	cout << "GO!" << endl;
-	/*
-	BigCom c ;
-	BigCom d = c.createDec();
-	BigCom i = c.createInt();
-	cin >> i >> d;
-	cout << i + d << endl;
-	cout << i * d << endl;
-	cout << d / d << endl;*/
 
+#ifdef TEST
+	Integer i = "123";
+	Decimal d = "3.0";
+	cout << i << endl << d;
+#endif // TEST
+
+	
 	while (cmd != "EXIT")
 	{
 		cin >> cmd;
