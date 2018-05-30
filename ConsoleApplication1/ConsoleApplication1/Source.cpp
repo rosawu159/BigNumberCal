@@ -30,6 +30,14 @@ int main()
 	Integer i = "123";
 	Decimal d = "3.0";
 	cout << i << endl << d;
+
+	/*vector<Number*> numbers;
+	numbers.push_back(&i);
+	numbers.push_back(&d);
+	for (const auto& num : numbers)
+	{
+		cout << *num << endl;
+	}*/
 #endif // TEST
 
 	
@@ -54,13 +62,13 @@ int main()
 					{
 						int n = intVar.erase(temp);
 						intVar.insert(pair<string, BigInt>(temp, result.createInt()));
-						cout << "variable " << temp << " = " << intVar[temp] << endl << " is sucessfuly added" << endl;
+						//cout << "variable " << temp << " = " << intVar[temp] << endl << " is sucessfuly added" << endl;
 					}
 					else if (decVar.count(temp))
 					{
 						int n = decVar.erase(temp);
 						decVar.insert(pair<string, BigDec>(temp, result));
-						cout << "variable " << temp << " = " << decVar[temp] << endl << " is sucessfuly added" << endl;
+						//cout << "variable " << temp << " = " << decVar[temp] << endl << " is sucessfuly added" << endl;
 					}
 				}
 				else {
@@ -91,13 +99,13 @@ int main()
 				{
 					int n = intVar.erase(name);
 					intVar.insert(pair<string, BigInt>(name, result.createInt()));
-					cout << "variable " << name << " = " << intVar[name] << endl << " is sucessfuly added" << endl;
+					//cout << "variable " << name << " = " << intVar[name] << endl << " is sucessfuly added" << endl;
 				}
 				else if (type == "dec")
 				{
 					int n = decVar.erase(name);
 					decVar.insert(pair<string, BigDec>(name, result));
-					cout << "variable " << name << " = " << decVar[name] << endl << " is sucessfuly added" << endl;
+					//cout << "variable " << name << " = " << decVar[name] << endl << " is sucessfuly added" << endl;
 				}
 
 				else {

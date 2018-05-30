@@ -194,8 +194,7 @@ BigDec powerf(const BigDec & base, const BigDec & exp)
 {
 	BigDec result("1.0");
 
-
-
+	
 	if (exp.nume.back() < 0)//璽计
 	{
 		if (BigInt(exp.deno) > -(BigInt(exp.nume))) {//璝だダだ玥<1
@@ -236,6 +235,12 @@ BigDec powerf(const BigDec & base, const BigDec & exp)
 				int a = aa.size();//だ
 				BigDec c = sqrt(a);
 				vector<long long> b;
+
+				for (int i = 0; i < a; i++)
+				{
+					b.push_back(0);
+				}
+
 				for (int i = 0; i < a; i++) {
 					if (a % 2 == 0) {//案计计秖
 						b[i] = base.nume[2 * i] * 10 + base.nume[2 * i + 1];
@@ -263,7 +268,7 @@ BigDec powerf(const BigDec & base, const BigDec & exp)
 
 
 	}
-
+	
 	return result;
 }
 
