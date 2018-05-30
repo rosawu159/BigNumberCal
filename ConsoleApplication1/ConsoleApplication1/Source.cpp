@@ -1,3 +1,4 @@
+//#define TEST
 #include<iostream>
 #include "Number.h"
 #include "BigDec.h"
@@ -8,9 +9,11 @@
 #define MAX 256
 using namespace std;
 
+typedef BigInt Integer;
+typedef BigDec Decimal;
+
 map<string, BigInt>intVar;
 map<string, BigDec>decVar;
-
 
 void processInput(stringstream & ss, string& input);
 BigDec calTier4(stringstream& line);
@@ -22,15 +25,22 @@ int main()
 {
 	string cmd;
 	cout << "GO!" << endl;
-	/*
-	BigCom c ;
-	BigCom d = c.createDec();
-	BigCom i = c.createInt();
-	cin >> i >> d;
-	cout << i + d << endl;
-	cout << i * d << endl;
-	cout << d / d << endl;*/
 
+#ifdef TEST
+	Integer i = "123";
+	Decimal d = "3.0";
+	cout << i << endl << d;
+
+	/*vector<Number*> numbers;
+	numbers.push_back(&i);
+	numbers.push_back(&d);
+	for (const auto& num : numbers)
+	{
+		cout << *num << endl;
+	}*/
+#endif // TEST
+
+	
 	while (cmd != "EXIT")
 	{
 		cin >> cmd;
@@ -52,13 +62,13 @@ int main()
 					{
 						int n = intVar.erase(temp);
 						intVar.insert(pair<string, BigInt>(temp, result.createInt()));
-						cout << "variable " << temp << " = " << intVar[temp] << endl << " is sucessfuly added" << endl;
+						//cout << "variable " << temp << " = " << intVar[temp] << endl << " is sucessfuly added" << endl;
 					}
 					else if (decVar.count(temp))
 					{
 						int n = decVar.erase(temp);
 						decVar.insert(pair<string, BigDec>(temp, result));
-						cout << "variable " << temp << " = " << decVar[temp] << endl << " is sucessfuly added" << endl;
+						//cout << "variable " << temp << " = " << decVar[temp] << endl << " is sucessfuly added" << endl;
 					}
 				}
 				else {
@@ -89,13 +99,13 @@ int main()
 				{
 					int n = intVar.erase(name);
 					intVar.insert(pair<string, BigInt>(name, result.createInt()));
-					cout << "variable " << name << " = " << intVar[name] << endl << " is sucessfuly added" << endl;
+					//cout << "variable " << name << " = " << intVar[name] << endl << " is sucessfuly added" << endl;
 				}
 				else if (type == "dec")
 				{
 					int n = decVar.erase(name);
 					decVar.insert(pair<string, BigDec>(name, result));
-					cout << "variable " << name << " = " << decVar[name] << endl << " is sucessfuly added" << endl;
+					//cout << "variable " << name << " = " << decVar[name] << endl << " is sucessfuly added" << endl;
 				}
 
 				else {
