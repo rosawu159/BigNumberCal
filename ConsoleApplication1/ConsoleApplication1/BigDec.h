@@ -16,7 +16,6 @@ public:
 	BigDec();
 	BigDec(string numStr);
 	BigInt BigDec::createInt();
-	BigInt BigDec::createInt_noPoint();
 	BigDec(vector<long long> nume, vector<long long> deno);
 	BigDec(const BigInt bigInt);
 	~BigDec();

@@ -23,7 +23,6 @@ public:
 	friend vector<long long> operator-(const vector<long long> & a, const vector<long long> & b);
 	friend vector<long long> operator-(const vector<long long> & a);
 	friend string processDecimal(const vector<long long> & a, const vector<long long> & b, int precision = 100);
-	friend string processInt(const vector<long long> & a, const vector<long long> & b, int precision = 0);
 	friend bool operator==(const vector<long long> & a, const vector<long long> & b);
 	friend bool operator>(const vector<long long> & a, const vector<long long> & b);
 	friend bool operator<(const vector<long long> & a, const vector<long long> & b);

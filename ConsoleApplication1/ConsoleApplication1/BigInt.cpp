@@ -99,15 +99,6 @@ BigInt BigInt::operator/(const BigInt & b) const
 	return BigInt(processDecimal((*this).integer, b.integer, 0));
 }
 
-BigInt BigInt::operator/=(const BigInt & b) const
-{
-	if (b == 0)
-	{
-		throw DividedByZeroException();
-	}
-	return BigInt(processDecimal((*this).integer, b.integer, 0));
-}
-
 
 
 bool BigInt::operator==(const BigInt & b) const
