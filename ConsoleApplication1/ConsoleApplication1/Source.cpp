@@ -20,6 +20,7 @@ BigDec calTier4(stringstream& line);
 BigDec calTier3(stringstream& line);
 BigDec calTier2(stringstream& line);
 BigDec calTier1(stringstream& line);
+bool isInt = true;
 
 int main()
 {
@@ -182,6 +183,12 @@ void processInput(stringstream & ss, string& input)
 				isUnary = true;
 			}
 		}
+		//↓測試
+		else if (input[i] == '.')
+		{
+			isInt = false;
+		}
+		//↑測試
 		else
 		{
 			isUnary = false;
@@ -279,11 +286,61 @@ BigDec calTier2(stringstream& line)
 		else
 		{
 			rhs = calTier3(line);
-			lhs = lhs / rhs;
+			if (!isInt)
+			{
+				lhs = lhs / rhs;
+				isInt = true;
+			}
+			else
+			{
+				BigInt int_lhs = lhs.createInt();
+				BigInt int_rhs = rhs.createInt();
+				int_lhs /= int_rhs;
+				return (BigDec)int_lhs;
+			}
+			
 		}
 	}
 	return lhs;
 }
+
+BigDec calTier2(stringstream& line)
+{
+	BigDec lhs = calTier3(line);
+	while ((line.peek() == '*' || line.peek() == '/' || line.peek() == ' '))
+	{
+		BigDec rhs;
+		if (line.peek() == ' ')
+		{
+			line.get();
+			continue;
+		}
+		if (line.get() == '*')
+		{
+			rhs = calTier3(line);
+			lhs = lhs *rhs;
+		}
+		else
+		{
+			rhs = calTier3(line);
+			if (!isInt)
+			{
+				lhs = lhs / rhs;
+				isInt = true;
+			}
+			else
+			{
+				BigInt int_lhs = lhs.createInt();
+				BigInt int_rhs = rhs.createInt();
+				int_lhs /= int_rhs;
+				return (BigDec)int_lhs;
+			}
+			
+		}
+	}
+	return lhs;
+}
+
 
 BigDec calTier1(stringstream& line)
 {
@@ -299,3 +356,5 @@ BigDec calTier1(stringstream& line)
 	}
 	return lhs;
 }
+
+//分隔線

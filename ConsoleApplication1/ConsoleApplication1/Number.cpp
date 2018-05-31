@@ -60,6 +60,7 @@ vector<long long> operator*(const vector<long long>& a, const vector<long long>&
 	return tmp;
 }
 
+
 vector<long long> operator/(const vector<long long>& a, const long long b)
 {
 	vector<long long> temp = a;
@@ -196,6 +197,29 @@ string processDecimal(const vector<long long>& a, const vector<long long>& b, in
 			tempNume = tempNume *vector<long long>{10};
 		}
 		finalResult.push_back(result + '0');
+	}
+	return finalResult;
+}
+
+string processInt(const vector<long long>& a, const vector<long long>& b, int precision)
+{
+	vector<long long> tempNume = a;
+	vector<long long> tempDeno = b;
+	int digit = 0; //计计
+	int divPow = 0; //埃计经Ω
+	string finalResult;
+	if (tempNume.back() < 0)
+	{
+		for (int i = 0; i < tempNume.size(); i++)
+		{
+			tempNume[i] = -tempNume[i];
+		}
+		finalResult.push_back('-');
+	}
+	while (!(tempDeno > tempNume / 10))
+	{
+		tempDeno = tempDeno * vector<long long>{10};
+		divPow++;
 	}
 	return finalResult;
 }

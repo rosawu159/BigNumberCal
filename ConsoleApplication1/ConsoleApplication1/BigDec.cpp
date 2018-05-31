@@ -88,6 +88,11 @@ BigInt BigDec::createInt()
 	return BigInt(processDecimal(nume, deno, 0));
 }
 
+BigInt BigDec::createInt_noPoint()
+{
+	return BigInt(processInt(nume, deno, 0));
+}
+
 BigDec & BigDec::operator=(const BigDec & b)
 {
 	nume.clear();
@@ -96,7 +101,6 @@ BigDec & BigDec::operator=(const BigDec & b)
 	(*this).deno = b.deno;
 	return (*this);
 }
-
 
 BigDec BigDec::operator+(const BigDec & b) const
 {
