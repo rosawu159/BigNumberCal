@@ -28,6 +28,7 @@ int main()
 	cout << "GO!" << endl;
 
 #ifdef TEST
+
 	Integer i = "123";
 	Decimal d = "3.0";
 	cout << i << endl << d;
